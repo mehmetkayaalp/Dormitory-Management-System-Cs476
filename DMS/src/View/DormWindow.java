@@ -7,7 +7,7 @@ package view;
 
 /**
  *
- * @author NazlÄ±
+ * @author Nazlõ
  */
 public class DormWindow extends javax.swing.JFrame {
 

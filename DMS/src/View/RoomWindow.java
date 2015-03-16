@@ -7,7 +7,7 @@ package view;
 
 /**
  *
- * @author NazlÄ±
+ * @author Nazlõ
  */
 public class RoomWindow extends javax.swing.JFrame {
 

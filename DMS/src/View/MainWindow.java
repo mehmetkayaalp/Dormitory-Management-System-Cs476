@@ -7,7 +7,7 @@ package view;
 
 /**
  *
- * @author NazlÄ±
+ * @author Nazlõ
  */
 public class MainWindow extends javax.swing.JFrame {
 
