@@ -28,44 +28,36 @@ public class RoomWindow extends javax.swing.JFrame {
     private void initComponents() {
 
         dormAddDutton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        addRoomButton = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
+        roomDormNumberLabel = new javax.swing.JLabel();
+        roomRoomNumberLabel = new javax.swing.JLabel();
+        roomRoomTypeLabel = new javax.swing.JLabel();
+        roomDormNumberText = new javax.swing.JTextField();
+        roomRoomNumberText = new javax.swing.JTextField();
+        roomRoomTypeText = new javax.swing.JTextField();
+        roomRoomPriceText = new javax.swing.JTextField();
+        roomAddButton = new javax.swing.JButton();
+        roomRoomPriceLabel = new javax.swing.JLabel();
 
         dormAddDutton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         dormAddDutton.setText("ADD");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel1.setText("Dorm Number:");
+        roomDormNumberLabel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        roomDormNumberLabel.setText("Dorm Number:");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel3.setText("Room Number:");
+        roomRoomNumberLabel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        roomRoomNumberLabel.setText("Room Number:");
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel4.setText("Room Type:");
+        roomRoomTypeLabel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        roomRoomTypeLabel.setText("Room Type:");
 
-        jTextField1.setText("jTextField1");
+        roomAddButton.setBackground(new java.awt.Color(204, 255, 204));
+        roomAddButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        roomAddButton.setText("ADD");
 
-        jTextField2.setText("jTextField2");
-
-        jTextField3.setText("jTextField3");
-
-        jTextField4.setText("jTextField4");
-
-        addRoomButton.setBackground(new java.awt.Color(204, 255, 204));
-        addRoomButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        addRoomButton.setText("ADD");
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel5.setText("Room Price:");
+        roomRoomPriceLabel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        roomRoomPriceLabel.setText("Room Price:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -76,19 +68,19 @@ public class RoomWindow extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(roomDormNumberLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(roomRoomNumberLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
+                            .addComponent(roomRoomTypeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(roomRoomPriceLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField4)))
+                            .addComponent(roomRoomTypeText, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
+                            .addComponent(roomDormNumberText, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(roomRoomNumberText, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(roomRoomPriceText)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(addRoomButton, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(roomAddButton, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -100,20 +92,20 @@ public class RoomWindow extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(roomDormNumberLabel)
+                                    .addComponent(roomDormNumberText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(21, 21, 21)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3))
+                                    .addComponent(roomRoomNumberText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(roomRoomNumberLabel))
                                 .addGap(22, 22, 22)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel4))
+                                .addComponent(roomRoomTypeText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(roomRoomTypeLabel))
                         .addGap(24, 24, 24)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel5))
+                        .addComponent(roomRoomPriceText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(roomRoomPriceLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addComponent(addRoomButton)
+                .addComponent(roomAddButton)
                 .addContainerGap())
         );
 
@@ -157,15 +149,15 @@ public class RoomWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton addRoomButton;
+    private javax.swing.JButton roomAddButton;
     private javax.swing.JButton dormAddDutton;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JLabel roomDormNumberLabel;
+    private javax.swing.JLabel roomRoomNumberLabel;
+    private javax.swing.JLabel roomRoomTypeLabel;
+    private javax.swing.JLabel roomRoomPriceLabel;
+    private javax.swing.JTextField roomDormNumberText;
+    private javax.swing.JTextField roomRoomNumberText;
+    private javax.swing.JTextField roomRoomTypeText;
+    private javax.swing.JTextField roomRoomPriceText;
     // End of variables declaration//GEN-END:variables
 }

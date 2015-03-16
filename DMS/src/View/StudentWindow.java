@@ -63,17 +63,17 @@ public class StudentWindow extends javax.swing.JFrame {
         schoolInfoUniversityText = new javax.swing.JTextField();
         schoolInfoDepartmentText = new javax.swing.JTextField();
         schoolInfoGradeText = new javax.swing.JTextField();
-        accomadationInfoPanel = new javax.swing.JPanel();
-        accomadationInfoLabel = new javax.swing.JLabel();
-        accomadationInfoDormLabel = new javax.swing.JLabel();
-        accomadationInfoRoomLabel = new javax.swing.JLabel();
-        accomadationInfoDormComboBox = new javax.swing.JComboBox();
-        accomadationInfoRoomComboBox = new javax.swing.JComboBox();
-        accomadationInfoStartDateLabel = new javax.swing.JLabel();
-        accomadationInfoEndDateLabel = new javax.swing.JLabel();
-        accomadationInfoStartDateText = new javax.swing.JTextField();
-        accomadationInfoEndDateText = new javax.swing.JTextField();
-        accomadationInfoAddButton = new javax.swing.JButton();
+        accoInfoPanel = new javax.swing.JPanel();
+        accoInfoLabel = new javax.swing.JLabel();
+        accoInfoDormLabel = new javax.swing.JLabel();
+        accoInfoRoomLabel = new javax.swing.JLabel();
+        accoInfoDormComboBox = new javax.swing.JComboBox();
+        accoInfoRoomComboBox = new javax.swing.JComboBox();
+        accoInfoStartDateLabel = new javax.swing.JLabel();
+        accoInfoEndDateLabel = new javax.swing.JLabel();
+        accoInfoStartDateText = new javax.swing.JTextField();
+        accoInfoEndDateText = new javax.swing.JTextField();
+        accoInfoAddButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -302,82 +302,82 @@ public class StudentWindow extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        accomadationInfoPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        accoInfoPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        accomadationInfoLabel.setFont(new java.awt.Font("Tahoma", 2, 13)); // NOI18N
-        accomadationInfoLabel.setText("Accomadation Information");
+        accoInfoLabel.setFont(new java.awt.Font("Tahoma", 2, 13)); // NOI18N
+        accoInfoLabel.setText("Accomadation Information");
 
-        accomadationInfoDormLabel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        accomadationInfoDormLabel.setText("Dorm:");
+        accoInfoDormLabel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        accoInfoDormLabel.setText("Dorm:");
 
-        accomadationInfoRoomLabel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        accomadationInfoRoomLabel.setText("Room:");
+        accoInfoRoomLabel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        accoInfoRoomLabel.setText("Room:");
 
-        accomadationInfoDormComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        accoInfoDormComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        accomadationInfoRoomComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        accoInfoRoomComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        accomadationInfoStartDateLabel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        accomadationInfoStartDateLabel.setText("Start Date:");
+        accoInfoStartDateLabel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        accoInfoStartDateLabel.setText("Start Date:");
 
-        accomadationInfoEndDateLabel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        accomadationInfoEndDateLabel.setText("End Date:");
+        accoInfoEndDateLabel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        accoInfoEndDateLabel.setText("End Date:");
 
-        accomadationInfoAddButton.setBackground(new java.awt.Color(204, 255, 204));
-        accomadationInfoAddButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        accomadationInfoAddButton.setText("ADD");
+        accoInfoAddButton.setBackground(new java.awt.Color(204, 255, 204));
+        accoInfoAddButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        accoInfoAddButton.setText("ADD");
 
-        javax.swing.GroupLayout gl_accomadationInfoPanel = new javax.swing.GroupLayout(accomadationInfoPanel);
-        accomadationInfoPanel.setLayout(gl_accomadationInfoPanel);
-        gl_accomadationInfoPanel.setHorizontalGroup(
-            gl_accomadationInfoPanel.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(gl_accomadationInfoPanel.createSequentialGroup()
+        javax.swing.GroupLayout gl_accoInfoPanel = new javax.swing.GroupLayout(accoInfoPanel);
+        accoInfoPanel.setLayout(gl_accoInfoPanel);
+        gl_accoInfoPanel.setHorizontalGroup(
+            gl_accoInfoPanel.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(gl_accoInfoPanel.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(gl_accomadationInfoPanel.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(accomadationInfoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(gl_accomadationInfoPanel.createSequentialGroup()
-                        .addGroup(gl_accomadationInfoPanel.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(accomadationInfoRoomLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
-                            .addComponent(accomadationInfoDormLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(gl_accoInfoPanel.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(accoInfoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(gl_accoInfoPanel.createSequentialGroup()
+                        .addGroup(gl_accoInfoPanel.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(accoInfoRoomLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
+                            .addComponent(accoInfoDormLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(29, 29, 29)
-                        .addGroup(gl_accomadationInfoPanel.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(accomadationInfoDormComboBox, 0, 92, Short.MAX_VALUE)
-                            .addComponent(accomadationInfoRoomComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(gl_accoInfoPanel.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(accoInfoDormComboBox, 0, 92, Short.MAX_VALUE)
+                            .addComponent(accoInfoRoomComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(78, 78, 78)
-                        .addGroup(gl_accomadationInfoPanel.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(accomadationInfoStartDateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(accomadationInfoEndDateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(gl_accoInfoPanel.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(accoInfoStartDateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(accoInfoEndDateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(gl_accomadationInfoPanel.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(accomadationInfoStartDateText, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(gl_accomadationInfoPanel.createSequentialGroup()
-                                .addComponent(accomadationInfoEndDateText, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(gl_accoInfoPanel.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(accoInfoStartDateText, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(gl_accoInfoPanel.createSequentialGroup()
+                                .addComponent(accoInfoEndDateText, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                                .addComponent(accomadationInfoAddButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(accoInfoAddButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(20, 20, 20))
         );
-        gl_accomadationInfoPanel.setVerticalGroup(
-            gl_accomadationInfoPanel.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(gl_accomadationInfoPanel.createSequentialGroup()
+        gl_accoInfoPanel.setVerticalGroup(
+            gl_accoInfoPanel.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(gl_accoInfoPanel.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(gl_accomadationInfoPanel.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(gl_accomadationInfoPanel.createSequentialGroup()
-                        .addComponent(accomadationInfoLabel)
+                .addGroup(gl_accoInfoPanel.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(gl_accoInfoPanel.createSequentialGroup()
+                        .addComponent(accoInfoLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(gl_accomadationInfoPanel.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(accomadationInfoDormLabel)
-                            .addComponent(accomadationInfoDormComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(accomadationInfoStartDateLabel)
-                            .addComponent(accomadationInfoStartDateText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(gl_accoInfoPanel.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(accoInfoDormLabel)
+                            .addComponent(accoInfoDormComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(accoInfoStartDateLabel)
+                            .addComponent(accoInfoStartDateText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
-                        .addGroup(gl_accomadationInfoPanel.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(accomadationInfoRoomLabel)
-                            .addComponent(accomadationInfoRoomComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(accomadationInfoEndDateLabel)
-                            .addComponent(accomadationInfoEndDateText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gl_accomadationInfoPanel.createSequentialGroup()
+                        .addGroup(gl_accoInfoPanel.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(accoInfoRoomLabel)
+                            .addComponent(accoInfoRoomComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(accoInfoEndDateLabel)
+                            .addComponent(accoInfoEndDateText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gl_accoInfoPanel.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(accomadationInfoAddButton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(accoInfoAddButton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
 
@@ -388,7 +388,7 @@ public class StudentWindow extends javax.swing.JFrame {
             .addGroup(gl_studentWindowSubPanel.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(gl_studentWindowSubPanel.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(accomadationInfoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(accoInfoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(personalInfoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(gl_studentWindowSubPanel.createSequentialGroup()
                         .addComponent(emergencyContactPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -405,7 +405,7 @@ public class StudentWindow extends javax.swing.JFrame {
                     .addComponent(emergencyContactPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(schoolInfoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(accomadationInfoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(accoInfoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout gl_studentWindowMainPanel = new javax.swing.GroupLayout(studentWindowMainPanel);
@@ -495,13 +495,13 @@ public class StudentWindow extends javax.swing.JFrame {
     private javax.swing.JLabel schoolInfoUniversityLabel;
     private javax.swing.JLabel schoolInfoDepartmentLabel;
     private javax.swing.JLabel schoolInfoGradeLabel;
-    private javax.swing.JLabel accomadationInfoDormLabel;
-    private javax.swing.JLabel accomadationInfoRoomLabel;
-    private javax.swing.JLabel accomadationInfoStartDateLabel;
-    private javax.swing.JLabel accomadationInfoEndDateLabel;
+    private javax.swing.JLabel accoInfoDormLabel;
+    private javax.swing.JLabel accoInfoRoomLabel;
+    private javax.swing.JLabel accoInfoStartDateLabel;
+    private javax.swing.JLabel accoInfoEndDateLabel;
     private javax.swing.JLabel emergencyContactLabel;
     private javax.swing.JLabel schoolInfoLabel;
-    private javax.swing.JLabel accomadationInfoLabel;
+    private javax.swing.JLabel accoInfoLabel;
     private javax.swing.JLabel personalInfoNameLabel;
     private javax.swing.JLabel personalInfoSurnameLabel;
     private javax.swing.JLabel personalInfoNationalIDLabel;
@@ -511,7 +511,7 @@ public class StudentWindow extends javax.swing.JFrame {
     private javax.swing.JPanel personalInfoPanel;
     private javax.swing.JPanel emergencyContactPanel;
     private javax.swing.JPanel schoolInfoPanel;
-    private javax.swing.JPanel accomadationInfoPanel;
+    private javax.swing.JPanel accoInfoPanel;
     private javax.swing.JTextField schoolInfoUniversityText;
     private javax.swing.JTextField schoolInfoDepartmentText;
     private javax.swing.JTextField schoolInfoGradeText;
@@ -519,15 +519,15 @@ public class StudentWindow extends javax.swing.JFrame {
     private javax.swing.JTextField emergencyContactSurnameText;
     private javax.swing.JTextField emergencyContactPhoneText;
     private javax.swing.JComboBox personalInfoDayComboBox;
-    private javax.swing.JComboBox accomadationInfoDormComboBox;
+    private javax.swing.JComboBox accoInfoDormComboBox;
     private javax.swing.JTextField personalInfoMailComboBox;
-    private javax.swing.JTextField accomadationInfoEndDateText;
+    private javax.swing.JTextField accoInfoEndDateText;
     private javax.swing.JComboBox personalInfoMounthComboBox;
     private javax.swing.JTextField personalInfoNameText;
     private javax.swing.JTextField personalInfoPhoneText;
-    private javax.swing.JComboBox accomadationInfoRoomComboBox;
-    private javax.swing.JButton accomadationInfoAddButton;
-    private javax.swing.JTextField accomadationInfoStartDateText;
+    private javax.swing.JComboBox accoInfoRoomComboBox;
+    private javax.swing.JButton accoInfoAddButton;
+    private javax.swing.JTextField accoInfoStartDateText;
     private javax.swing.JTextField personalInfoSurnameText;
     private javax.swing.JTextField personalInfoNationalIDText;
     private javax.swing.JComboBox personalInfoYearComboBox;

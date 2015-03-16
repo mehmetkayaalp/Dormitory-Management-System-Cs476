@@ -27,64 +27,62 @@ public class DormWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel3 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        addDormButton = new javax.swing.JButton();
+        dormWindowPanel = new javax.swing.JPanel();
+        dormNumberLabel = new javax.swing.JLabel();
+        dormAddressLabel = new javax.swing.JLabel();
+        dormNumberText = new javax.swing.JTextField();
+        dormAddressScrollPane = new javax.swing.JScrollPane();
+        dormAdressTextArea = new javax.swing.JTextArea();
+        dormAddButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel3.setText("Dormitory Number: ");
+        dormNumberLabel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        dormNumberLabel.setText("Dormitory Number: ");
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel1.setText("Dormitory Address:");
+        dormAddressLabel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        dormAddressLabel.setText("Dormitory Address:");
 
-        jTextField1.setText("jTextField1");
+        dormAdressTextArea.setColumns(20);
+        dormAdressTextArea.setRows(5);
+        dormAddressScrollPane.setViewportView(dormAdressTextArea);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        dormAddButton.setBackground(new java.awt.Color(204, 255, 204));
+        dormAddButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        dormAddButton.setText("ADD");
 
-        addDormButton.setBackground(new java.awt.Color(204, 255, 204));
-        addDormButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        addDormButton.setText("ADD");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout gl_dormWindowPanel = new javax.swing.GroupLayout(dormWindowPanel);
+        dormWindowPanel.setLayout(gl_dormWindowPanel);
+        gl_dormWindowPanel.setHorizontalGroup(
+            gl_dormWindowPanel.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(gl_dormWindowPanel.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(gl_dormWindowPanel.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(gl_dormWindowPanel.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(gl_dormWindowPanel.createSequentialGroup()
+                            .addComponent(dormNumberLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                            .addComponent(jLabel1)
+                            .addComponent(dormNumberText, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(gl_dormWindowPanel.createSequentialGroup()
+                            .addComponent(dormAddressLabel)
                             .addGap(18, 18, 18)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(addDormButton, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(dormAddressScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(dormAddButton, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        gl_dormWindowPanel.setVerticalGroup(
+            gl_dormWindowPanel.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(gl_dormWindowPanel.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(gl_dormWindowPanel.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(dormNumberLabel)
+                    .addComponent(dormNumberText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(gl_dormWindowPanel.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(dormAddressLabel)
+                    .addComponent(dormAddressScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(addDormButton, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                .addComponent(dormAddButton, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -92,11 +90,11 @@ public class DormWindow extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(dormWindowPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(dormWindowPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -138,12 +136,12 @@ public class DormWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton addDormButton;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JButton dormAddButton;
+    private javax.swing.JLabel dormAddressLabel;
+    private javax.swing.JLabel dormNumberLabel;
+    private javax.swing.JPanel dormWindowPanel;
+    private javax.swing.JScrollPane dormAddressScrollPane;
+    private javax.swing.JTextArea dormAdressTextArea;
+    private javax.swing.JTextField dormNumberText;
     // End of variables declaration//GEN-END:variables
 }
