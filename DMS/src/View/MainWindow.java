@@ -27,6 +27,7 @@ public class MainWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
@@ -596,7 +597,7 @@ public class MainWindow extends javax.swing.JFrame {
     private void pTCidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pTCidActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_pTCidActionPerformed
-
+    
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         new StudentWindow().setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
