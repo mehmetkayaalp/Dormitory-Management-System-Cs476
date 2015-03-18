@@ -26,7 +26,7 @@ public class TestDatabase {
 	    @Before
 	    public void before() {
 	        try {
-				connection = new DBConnection().connect();
+			connection = new DBConnection().connect();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

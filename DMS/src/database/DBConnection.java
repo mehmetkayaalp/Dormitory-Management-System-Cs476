@@ -28,15 +28,15 @@ public class DBConnection {
 			e.printStackTrace();
 		}
 		String url = "jdbc:sqlserver://192.168.230.1:1433;instance=MSSQLSERVER;DatabaseName=DormManagement";
-		// String url = "jdbc:sqlserver://localhost:54629/DormManagement";
-		//con = DriverManager.getConnection(url, "sa", "123456");
+	
+		con = DriverManager.getConnection(url,"sa","123456");
 		return con;
 	}
 
 	public boolean insertDorm(Dorm dorm) throws SQLException {
-		connect();
+
 		try {
-			proc_stmt = con.prepareCall("{ call Insert_Dorm(?,?) }");
+			proc_stmt = connect().prepareCall("{ call Insert_Dorm(?,?) }");
 			proc_stmt.setString(1, dorm.getDormName());
 			proc_stmt.setString(2, dorm.getLocation());
 
@@ -51,9 +51,9 @@ public class DBConnection {
 	}
 
 	public boolean insertRoom(Room room) throws SQLException {
-		connect();
+		
 		try {
-			proc_stmt = con.prepareCall("{ call Insert_Room(?,?,?) }");
+			proc_stmt = connect().prepareCall("{ call Insert_Room(?,?,?) }");
 			proc_stmt.setString(1, room.getTypeName());
 			proc_stmt.setDouble(2, room.getRoomPrice());
 			proc_stmt.setInt(3, room.getRoomNo());
