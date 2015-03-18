@@ -25,6 +25,13 @@ public class TestRoom {
 	@Test
 	public void testTypeName3() {
 		Room room = new Room();
+		room.setTypeName(" ");
+		assertEquals(" ", room.getTypeName());
+	}
+	
+	@Test
+	public void testTypeName4() {
+		Room room = new Room();
 		room.setTypeName("asdfghj");
 		assertEquals("asdfghj", room.getTypeName());
 	}
