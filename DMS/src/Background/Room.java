@@ -1,9 +1,9 @@
-package Background;
+package background;
 
 public class Room {
 	private String typeName;
 	private int roomNo;
-	private double roomPice;
+	private double roomPrice;
 	
 	
 	public Room() {
@@ -22,11 +22,11 @@ public class Room {
 	public void setRoomNo(int roomNo) {
 		this.roomNo = roomNo;
 	}
-	public double getRoomPice() {
-		return roomPice;
+	public double getRoomPrice() {
+		return roomPrice;
 	}
-	public void setRoomPice(double roomPice) {
-		this.roomPice = roomPice;
+	public void setRoomPrice(double roomPice) {
+		this.roomPrice = roomPice;
 	}
 	
 	

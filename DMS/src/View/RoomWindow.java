@@ -7,13 +7,13 @@ package view;
 
 import java.sql.SQLException;
 
-import Background.Dorm;
-import Background.Room;
-import DB.DBConnection;
+import background.Dorm;
+import background.Room;
+import database.DBConnection;
 
 /**
  *
- * @author Nazlõ
+ * @author Nazli
  */
 public class RoomWindow extends javax.swing.JFrame {
 
@@ -217,7 +217,7 @@ public class RoomWindow extends javax.swing.JFrame {
 		Double roomPrice = Double.parseDouble(roomRoomPriceText.getText());
 		room.setRoomNo(roomNo);
 		room.setTypeName(roomType);
-		room.setRoomPice(roomPrice);
+		room.setRoomPrice(roomPrice);
 		System.out.println(roomNo);
 		DBConnection connection = new DBConnection();
 		if (connection.insertRoom(room)) {

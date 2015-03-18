@@ -7,7 +7,7 @@ package view;
 
 /**
  *
- * @author Nazlı
+ * @author Nazli
  */
 public class StudentWindow extends javax.swing.JFrame {
 

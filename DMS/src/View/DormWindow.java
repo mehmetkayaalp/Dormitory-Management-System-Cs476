@@ -7,12 +7,12 @@ package view;
 
 import java.sql.SQLException;
 
-import Background.Dorm;
-import DB.DBConnection;
+import background.Dorm;
+import database.DBConnection;
 
 /**
  *
- * @author Nazlõ
+ * @author Nazli
  */
 public class DormWindow extends javax.swing.JFrame {
 

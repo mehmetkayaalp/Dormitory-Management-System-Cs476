@@ -11,8 +11,8 @@ public class TestSchool {
 	@Test
 	public void testUniversityName() {
 		School school = new School();
-		school.setUniName("Ozyeğin University");
-		assertEquals("Ozyeğin University",school.getUniName());
+		school.setUniName("Ozyegiin University");
+		assertEquals("Ozyegiin University",school.getUniName());
 	}
 	
 	@Test
