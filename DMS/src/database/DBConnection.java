@@ -32,6 +32,20 @@ public class DBConnection {
 		con = DriverManager.getConnection(url,"sa","123456");
 		return con;
 	}
+	 public boolean insertRoomType(Room room){
+		 try {
+				proc_stmt = connect().prepareCall("{ call Insert_RoomType(?,?) }");
+				proc_stmt.setInt(1, room.getRoomNo());
+				proc_stmt.setDouble(2, room.getRoomPrice());
+
+				proc_stmt.executeUpdate();
+				return true;
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return false;
+			} 
+	 }
 
 	public boolean insertDorm(Dorm dorm) throws SQLException {
 

@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package view;
+import javax.swing.JMenuItem;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 /**
  *
@@ -1167,6 +1170,19 @@ public class MainWindow extends javax.swing.JFrame {
 		roomMenu.add(addRoomMenuItem);
 
 		menuBar.add(roomMenu);
+		
+		mntmAddRoomType = new JMenuItem("Add Room Type");
+		mntmAddRoomType.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				addRoomTypeActionPerformed(evt);
+			}
+
+			private void addRoomTypeActionPerformed(ActionEvent evt) {
+				new RoomTypeWindow().setVisible(true);
+				
+			}
+		});
+		roomMenu.add(mntmAddRoomType);
 
 		otherMenu.setText("Other");
 		menuBar.add(otherMenu);
@@ -1303,5 +1319,6 @@ public class MainWindow extends javax.swing.JFrame {
 	private javax.swing.JTextField personalInfoNationalIDText;
 	private javax.swing.JComboBox personalInfoYearComboBox;
 	private javax.swing.JTextField searchStudentText;
+	private JMenuItem mntmAddRoomType;
 	// End of variables declaration//GEN-END:variables
 }
