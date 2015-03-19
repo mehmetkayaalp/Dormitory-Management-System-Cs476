@@ -107,7 +107,7 @@ public class StudentWindow extends javax.swing.JFrame {
 
         personalInfoNationalIDText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pTCidActionPerformed(evt);
+                addActionPerformed(evt);
             }
         });
 
@@ -443,7 +443,7 @@ public class StudentWindow extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void pTCidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pTCidActionPerformed
+    private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pTCidActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_pTCidActionPerformed
 
