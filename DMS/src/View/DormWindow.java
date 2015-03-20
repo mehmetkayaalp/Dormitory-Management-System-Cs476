@@ -177,7 +177,8 @@ public class DormWindow extends javax.swing.JFrame {
 
 	private void addDormButtonActionPerformed(java.awt.event.ActionEvent evt)
 			throws SQLException {
-		if (dormNumberText.getText().isEmpty()) {
+		if (dormNumberText.getText().isEmpty()
+				|| dormAdressTextArea.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(dormWindowPanel,
 					"The mandatory field is empty, please fill");
 		} else {
@@ -186,7 +187,6 @@ public class DormWindow extends javax.swing.JFrame {
 			dorm.setDormName(dormName);
 			String location = dormAdressTextArea.getText();
 			dorm.setLocation(location);
-			System.out.println(dormName);
 			DBConnection connection = new DBConnection();
 			if (connection.insertDorm(dorm)) {
 				System.out.println("Kayit basarili");

@@ -991,7 +991,6 @@ public class StudentWindow extends javax.swing.JFrame {
 	}// </editor-fold>//GEN-END:initComponents
 
 	private void addActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_pTCidActionPerformed
-		System.out.println("naznaz");
 		if (personalInfoNameText.getText().isEmpty()
 				|| personalInfoSurnameText.getText().isEmpty()
 				|| personalInfoPhoneText.getText().isEmpty()
@@ -999,7 +998,6 @@ public class StudentWindow extends javax.swing.JFrame {
 				|| emergencyContactNameText.getText().isEmpty()
 				|| emergencyContactSurnameText.getText().isEmpty()
 				|| emergencyContactPhoneText.getText().isEmpty()) {
-			System.out.println("hhaha");
 			JOptionPane.showMessageDialog(getContentPane(),
 					"The mandatory field is empty, please fill");
 		} else {

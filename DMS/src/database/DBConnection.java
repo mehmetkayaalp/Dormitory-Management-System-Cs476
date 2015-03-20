@@ -3,9 +3,14 @@ package database;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javax.swing.JOptionPane;
+
+import view.DormWindow;
 import background.Dorm;
 import background.EmergencyContact;
 import background.Room;
@@ -15,40 +20,42 @@ import background.Student;
 public class DBConnection {
 	Connection con;
 	CallableStatement proc_stmt;
+	DormWindow dormWin;
 
 	public DBConnection() {
 
 	}
 
-	 public Connection connect() throws SQLException {
+	public Connection connect() throws SQLException {
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		String url = "jdbc:sqlserver://192.168.230.1:1433;instance=MSSQLSERVER;DatabaseName=DormManagement";
-	
-		con = DriverManager.getConnection(url,"sa","123456");
+		String url = "jdbc:sqlserver://192.168.234.1:1433;instance=MSSQLSERVER;DatabaseName=DormManagement";
+
+		con = DriverManager.getConnection(url, "sa", "123456");
 		return con;
 	}
-	 public boolean insertRoomType(Room room){
-		 try {
-				proc_stmt = connect().prepareCall("{ call Insert_RoomType(?,?) }");
-				proc_stmt.setInt(1, room.getRoomNo());
-				proc_stmt.setDouble(2, room.getRoomPrice());
 
-				proc_stmt.executeUpdate();
-				return true;
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				return false;
-			} 
-	 }
+	public boolean insertRoomType(Room room) {
+		try {
+
+			proc_stmt = connect().prepareCall("{ call Insert_RoomType(?,?) }");
+			proc_stmt.setInt(1, room.getRoomNo());
+			proc_stmt.setDouble(2, room.getRoomPrice());
+
+			proc_stmt.executeUpdate();
+			return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+	}
 
 	public boolean insertDorm(Dorm dorm) throws SQLException {
-
 		try {
 			proc_stmt = connect().prepareCall("{ call Insert_Dorm(?,?) }");
 			proc_stmt.setString(1, dorm.getDormName());
@@ -65,7 +72,7 @@ public class DBConnection {
 	}
 
 	public boolean insertRoom(Room room) throws SQLException {
-		
+
 		try {
 			proc_stmt = connect().prepareCall("{ call Insert_Room(?,?,?) }");
 			proc_stmt.setString(1, room.getTypeName());
@@ -98,7 +105,7 @@ public class DBConnection {
 			proc_stmt.setString(9, st.getEmail());
 			proc_stmt.setString(10, st.getPhone());
 			proc_stmt.setString(11, st.getGender());
-			proc_stmt.setInt(13, st.getTC());
+			proc_stmt.setString(13, st.getTC());
 			proc_stmt.setString(12, st.getBirthday());
 
 			proc_stmt.executeUpdate();
@@ -110,14 +117,36 @@ public class DBConnection {
 		}
 
 	}
+	
+	public void retrieveDormInfo() {
+		PreparedStatement pstmt = null;
+		try {
+			String dorm = "";
+			Statement stmt = con.createStatement();
+		    String query = "SELECT * FROM Dorm";
+
+		    ResultSet rs = stmt.executeQuery(query);
+			//pstmt  = con.prepareStatement("select * from Dorm");
+			//ResultSet rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				dorm = rs.getString("DormName") + " " + rs.getString("Location");
+			}
+			
+			System.out.println(dorm);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 	public static void closeStatement(Statement statement) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public static void closeConnection(Connection connection) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }
