@@ -7,6 +7,8 @@ package view;
 
 import java.sql.SQLException;
 
+import javax.swing.JOptionPane;
+
 import background.Dorm;
 import database.DBConnection;
 
@@ -175,27 +177,32 @@ public class DormWindow extends javax.swing.JFrame {
 
 	private void addDormButtonActionPerformed(java.awt.event.ActionEvent evt)
 			throws SQLException {
-		Dorm dorm = new Dorm();
-		String dormName = dormNumberText.getText();
-		dorm.setDormName(dormName);
-		String location = dormAdressTextArea.getText();
-		dorm.setLocation(location);
-		System.out.println(dormName);
-		DBConnection connection = new DBConnection();
-		if (connection.insertDorm(dorm)) {
-			System.out.println("Kayit basarili");
+		if (dormNumberText.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(dormWindowPanel,
+					"The mandatory field is empty, please fill");
 		} else {
-			System.out.println("Kayit basarisiz");
+			Dorm dorm = new Dorm();
+			String dormName = dormNumberText.getText();
+			dorm.setDormName(dormName);
+			String location = dormAdressTextArea.getText();
+			dorm.setLocation(location);
+			System.out.println(dormName);
+			DBConnection connection = new DBConnection();
+			if (connection.insertDorm(dorm)) {
+				System.out.println("Kayit basarili");
+				setVisible(false);
+			} else {
+				System.out.println("Kayit basarisiz");
+			}
 		}
-		
-		
+
 	}
 
 	/**
 	 * @param args
 	 *            the command line arguments
 	 */
-	
+
 	// Variables declaration - do not modify//GEN-BEGIN:variables
 	private javax.swing.JButton dormAddButton;
 	private javax.swing.JLabel dormAddressLabel;
@@ -205,4 +212,5 @@ public class DormWindow extends javax.swing.JFrame {
 	private javax.swing.JTextArea dormAdressTextArea;
 	private javax.swing.JTextField dormNumberText;
 	// End of variables declaration//GEN-END:variables
+
 }
