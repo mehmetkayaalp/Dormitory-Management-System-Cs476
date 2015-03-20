@@ -5,6 +5,10 @@
  */
 package view;
 
+import javax.swing.JMenuItem;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
 /**
  *
  * @author Nazli
@@ -1153,6 +1157,14 @@ public class MainWindow extends javax.swing.JFrame {
 
 		menuBar.add(dormMenu);
 
+		viewDormMenuItem = new JMenuItem("View Dorm List");
+		viewDormMenuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				viewDormActionPerformed(evt);
+			}
+		});
+		dormMenu.add(viewDormMenuItem);
+
 		roomMenu.setText("Room");
 
 		addRoomMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(
@@ -1167,6 +1179,18 @@ public class MainWindow extends javax.swing.JFrame {
 		roomMenu.add(addRoomMenuItem);
 
 		menuBar.add(roomMenu);
+		mntmAddRoomType = new JMenuItem("Add Room Type");
+		mntmAddRoomType.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				addRoomTypeActionPerformed(evt);
+			}
+
+			private void addRoomTypeActionPerformed(ActionEvent evt) {
+				new RoomTypeWindow().setVisible(true);
+
+			}
+		});
+		roomMenu.add(mntmAddRoomType);
 
 		otherMenu.setText("Other");
 		menuBar.add(otherMenu);
@@ -1223,6 +1247,10 @@ public class MainWindow extends javax.swing.JFrame {
 
 	private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jMenuItem3ActionPerformed
 		new RoomWindow().setVisible(true);
+	}// GEN-LAST:event_jMenuItem3ActionPerformed
+
+	private void viewDormActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jMenuItem3ActionPerformed
+		new DormListWindow().setVisible(true);
 	}// GEN-LAST:event_jMenuItem3ActionPerformed
 
 	/**
@@ -1298,10 +1326,12 @@ public class MainWindow extends javax.swing.JFrame {
 	private javax.swing.JTextField personalInfoPhoneText;
 	private javax.swing.JComboBox accoInfoRoomComboBox;
 	private javax.swing.JButton accoInfoSaveButton;
+	private JMenuItem mntmAddRoomType;
 	private javax.swing.JTextField accoInfoStartDateText;
 	private javax.swing.JTextField personalInfoSurnameTExt;
 	private javax.swing.JTextField personalInfoNationalIDText;
 	private javax.swing.JComboBox personalInfoYearComboBox;
 	private javax.swing.JTextField searchStudentText;
+	private JMenuItem viewDormMenuItem;
 	// End of variables declaration//GEN-END:variables
 }
