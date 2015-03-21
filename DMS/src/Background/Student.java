@@ -1,4 +1,5 @@
 package background;
+import java.util.*;
 
 public class Student {
 	private String name;
@@ -6,9 +7,19 @@ public class Student {
 	private String email;
 	private String phone;
 	private String gender;
-	private int TC;
-	private String birthday;
+	private String TC;
+	private Date birthday;
 	
+
+
+	public Date getBirthday() {
+		return birthday;
+	}
+
+	public void setBirthday(Date birthday) {
+		this.birthday = birthday;
+	}
+
 	public Student() {
 		
 	}
@@ -53,21 +64,15 @@ public class Student {
 		this.gender = gender;
 	}
 
-	public int getTC() {
+	public String getTC() {
 		return TC;
 	}
 
-	public void setTC(int tC) {
+	public void setTC(String tC) {
 		TC = tC;
 	}
 
-	public String getBirthday() {
-		return birthday;
-	}
-
-	public void setBirthday(String birthday) {
-		this.birthday = birthday;
-	}
+	
 	
 	
 }
