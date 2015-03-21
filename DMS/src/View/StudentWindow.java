@@ -10,7 +10,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-
 import javax.swing.JOptionPane;
 
 import database.DBConnection;
@@ -932,9 +931,16 @@ public class StudentWindow extends javax.swing.JFrame {
 	}
 
 	private Room getRoomFromText() {
+		accoInfoRoomComboBox.addItem("aaa");
+		Object obj = accoInfoRoomComboBox.getSelectedItem();
+		System.out.println(obj);
 		Room room =new Room();
-		int roomNo=Integer.parseInt(accoInfoRoomComboBox.getSelectedItem().toString());
-		room.setRoomNo(roomNo);
+		if (accoInfoRoomComboBox.getSelectedItem().equals(null)) {
+			room = null;
+		} else {
+			//int roomNo=Integer.parseInt(accoInfoRoomComboBox.getSelectedItem().toString());
+			//room.setRoomNo(roomNo);
+		}
 		return room;
 	}
 
@@ -961,10 +967,15 @@ public class StudentWindow extends javax.swing.JFrame {
 
 	private Student getStudentInfoFromText() throws ParseException {
 		Student student = new Student();
-		Date birthday=convertStringToDatetime(txtBirthday.getText());
+		if (txtBirthday.getText().isEmpty()) {
+			student.setBirthday(null);
+		}
+		else {
+			Date birthday=convertStringToDatetime(txtBirthday.getText());
+			student.setBirthday(birthday);
+		}
 		student.setName(personalInfoNameText.getText());
 		student.setSurname(personalInfoSurnameText.getText());
-		student.setBirthday(birthday);
 		student.setEmail(personalInfoMailText.getText());
 		student.setGender(personalInfoGenderComboBox.getSelectedItem().toString());
 		student.setTC(personalInfoTCText.getText());
