@@ -8,6 +8,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.LayoutStyle.ComponentPlacement;
@@ -23,8 +24,6 @@ public class RoomTypeWindow extends JFrame {
 	private JPanel contentPane;
 	private JTextField txtTypeName;
 	private JTextField txtPrice;
-
-
 
 	/**
 	 * Create the frame.
@@ -53,6 +52,10 @@ public class RoomTypeWindow extends JFrame {
 			}
 
 			private void btnAddRoomTypeActionPerformed(ActionEvent evt) {
+				if (txtTypeName.getText().isEmpty() || txtPrice.getText().isEmpty()) {
+					JOptionPane.showMessageDialog(getContentPane(),
+							"The mandatory field is empty, please fill");
+				} else {
 				Room room = new Room();
 				room.setTypeName(txtTypeName.getText());
 				Double roomPrice=Double.parseDouble(txtPrice.getText());
@@ -62,6 +65,7 @@ public class RoomTypeWindow extends JFrame {
 					System.out.println("Kayit Basarili");
 				}else{
 					System.out.println("Kayit Basarili Degil");
+				}
 				}
 			}
 		});

@@ -7,6 +7,8 @@ package view;
 
 import java.sql.SQLException;
 
+import javax.swing.JOptionPane;
+
 import background.Dorm;
 import background.Room;
 import database.DBConnection;
@@ -58,6 +60,7 @@ public class RoomWindow extends javax.swing.JFrame {
 
 		roomRoomTypeLabel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 		roomRoomTypeLabel.setText("Room Type:");
+		roomRoomPriceText.setEditable(false);
 
 		roomAddButton.setBackground(new java.awt.Color(204, 255, 204));
 		roomAddButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -211,19 +214,25 @@ public class RoomWindow extends javax.swing.JFrame {
 
 	private void addRoomButtonActionPerformed(java.awt.event.ActionEvent evt)
 			throws SQLException {
-		Room room = new Room();
-		int roomNo = Integer.parseInt(roomRoomNumberText.getText());
-		String roomType = roomRoomTypeText.getText();
-		Double roomPrice = Double.parseDouble(roomRoomPriceText.getText());
-		room.setRoomNo(roomNo);
-		room.setTypeName(roomType);
-		room.setRoomPrice(roomPrice);
-		System.out.println(roomNo);
-		DBConnection connection = new DBConnection();
-		if (connection.insertRoom(room)) {
-			System.out.println("Kayit basarili");
+		if (roomRoomNumberText.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(getContentPane(),
+					"The mandatory field is empty, please fill");
 		} else {
-			System.out.println("Kayit basarisiz");
+			Room room = new Room();
+			int roomNo = Integer.parseInt(roomRoomNumberText.getText());
+			String roomType = roomRoomTypeText.getText();
+			// Double roomPrice =
+			// Double.parseDouble(roomRoomPriceText.getText());
+			room.setRoomNo(roomNo);
+			room.setTypeName(roomType);
+			// room.setRoomPrice(roomPrice);
+			System.out.println(roomNo);
+			DBConnection connection = new DBConnection();
+			if (connection.insertRoom(room)) {
+				System.out.println("Kayit basarili");
+			} else {
+				System.out.println("Kayit basarisiz");
+			}
 		}
 	}
 
