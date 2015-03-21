@@ -8,7 +8,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+<<<<<<< HEAD
 import java.sql.Date;
+=======
+>>>>>>> 3a1b0bbd4b4d69552f79e415dcc718419d1ca59d
 import java.util.ArrayList;
 
 import background.Dorm;
@@ -19,10 +22,15 @@ import background.School;
 import background.Student;
 
 public class DBConnection {
-	Connection con;
+	Connection con = null;
 	CallableStatement proc_stmt;
+<<<<<<< HEAD
 	ResultSet rs=null;
 	PreparedStatement ps ;
+=======
+	DormWindow dormWin;
+	private ArrayList dorms;
+>>>>>>> 3a1b0bbd4b4d69552f79e415dcc718419d1ca59d
 
 	public DBConnection() {
 
@@ -161,27 +169,37 @@ public class DBConnection {
 
 	}
 	public void retrieveDormInfo() {
+		try {
+			connect();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		PreparedStatement pstmt = null;
 		try {
-			String dorm = "";
-			Statement stmt = con.createStatement();
-		    String query = "SELECT * FROM Dorm";
+			dorms = new ArrayList<>();
+			//Statement stmt = con.createStatement();
+		    //String query = "SELECT * FROM Dorm";
 
-		    ResultSet rs = stmt.executeQuery(query);
-			//pstmt  = con.prepareStatement("select * from Dorm");
-			//ResultSet rs = pstmt.executeQuery();
+		    //ResultSet rs = stmt.executeQuery(query);
+			pstmt  = con.prepareStatement("select * from Dorm");
+			ResultSet rs = pstmt.executeQuery();
 			
-			if (rs.next()) {
-				dorm = rs.getString("DormName") + " " + rs.getString("Location");
+			while (rs.next()) {
+				dorms.add(rs.getString("DormName") + " - " + rs.getString("Location"));
 			}
 			
-			System.out.println(dorm);
+			pstmt.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-
+	
+	public void retrieveRoomID() {
+		
+	}
+	
 	public static void closeStatement(Statement statement) {
 		// TODO Auto-generated method stub
 		
@@ -191,4 +209,9 @@ public class DBConnection {
 		// TODO Auto-generated method stub
 		
 	}
+
+	public ArrayList getDorms() {
+		return dorms;
+	}
+	
 }

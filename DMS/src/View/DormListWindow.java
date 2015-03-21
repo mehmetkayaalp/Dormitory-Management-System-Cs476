@@ -3,16 +3,23 @@ package view;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.GroupLayout;
 import javax.swing.JLabel;
+
 import java.awt.Font;
+import java.util.ArrayList;
+
 import javax.swing.JList;
 import javax.swing.JScrollPane;
+
+import database.DBConnection;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 /**
  *
  * @author Nazli
  */
 public class DormListWindow extends javax.swing.JFrame {
-
+	private JList list;
 	/**
 	 * Creates new form DormWindow
 	 */
@@ -48,7 +55,7 @@ public class DormListWindow extends javax.swing.JFrame {
 					.addGroup(gl_dormWindowPanel.createParallelGroup(Alignment.TRAILING)
 						.addComponent(scrollPane, Alignment.LEADING)
 						.addComponent(label, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 69, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap(152, Short.MAX_VALUE))
+					.addContainerGap(100, Short.MAX_VALUE))
 		);
 		gl_dormWindowPanel.setVerticalGroup(
 			gl_dormWindowPanel.createParallelGroup(Alignment.LEADING)
@@ -56,11 +63,23 @@ public class DormListWindow extends javax.swing.JFrame {
 					.addGap(18)
 					.addComponent(label, GroupLayout.PREFERRED_SIZE, 15, GroupLayout.PREFERRED_SIZE)
 					.addGap(13)
-					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
+					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
 					.addContainerGap())
 		);
-		String dorm[] = {"a","b", "c", "d0", "e"};
-		JList list = new JList(dorm);
+		
+		DBConnection conn = new DBConnection();
+		conn.retrieveDormInfo();
+		String dorms[] = new String[conn.getDorms().size()];
+		for (int i = 0; i < conn.getDorms().size(); i++) {
+			dorms[i] = (String) conn.getDorms().get(i);
+		}
+		list = new JList(dorms);
+		list.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent evt) {
+				clickMouse(evt);
+			}
+		});
 		scrollPane.setViewportView(list);
 		dormListWindowPanel.setLayout(gl_dormWindowPanel);
 
@@ -78,6 +97,14 @@ public class DormListWindow extends javax.swing.JFrame {
 
 		pack();
 	}// </editor-fold>//GEN-END:initComponents
+	
+	private void clickMouse(MouseEvent evt) {
+		if (evt.getClickCount() == 2) {
+			
+			System.out.println(list.getSelectedValue());
+		}
+		
+	}
 
 	private javax.swing.JPanel dormListWindowPanel;
 }
