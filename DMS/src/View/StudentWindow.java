@@ -6,15 +6,30 @@
 package view;
 
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 
 import javax.swing.JOptionPane;
 
 import database.DBConnection;
+import background.Dorm;
 import background.EmergencyContact;
+import background.Hostel;
+import background.Room;
 import background.School;
 import background.Student;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.GroupLayout;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.JTextField;
 
 /**
  *
@@ -55,9 +70,6 @@ public class StudentWindow extends javax.swing.JFrame {
 		personalInfoTCText = new javax.swing.JTextField();
 		personalInfoPhoneText = new javax.swing.JTextField();
 		personalInfoMailText = new javax.swing.JTextField();
-		personalInfoDayComboBox = new javax.swing.JComboBox();
-		personalInfoMounthComboBox = new javax.swing.JComboBox();
-		personalInfoYearComboBox = new javax.swing.JComboBox();
 		personalInfoGenderComboBox = new javax.swing.JComboBox();
 		emergencyContactPanel = new javax.swing.JPanel();
 		emergencyContactLabel = new javax.swing.JLabel();
@@ -80,7 +92,78 @@ public class StudentWindow extends javax.swing.JFrame {
 		accoInfoDormLabel = new javax.swing.JLabel();
 		accoInfoRoomLabel = new javax.swing.JLabel();
 		accoInfoDormComboBox = new javax.swing.JComboBox();
+		accoInfoDormComboBox.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent me) {
+				displayDormcombo(me);
+			}
+
+			private void displayDormcombo(MouseEvent me) {
+				DBConnection conn =new DBConnection();
+				
+				try {
+				
+					ArrayList<String> list=conn.displayDorm();
+					for(int i =0;i<list.size();i++)
+					 accoInfoDormComboBox.addItem(list.get(i));
+				} catch (SQLException e) {
+		
+					e.printStackTrace();
+				}
+				
+				
+				
+			}
+				
+			
+		});
+	/*	accoInfoDormComboBox.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				displayDormcombo(evt);
+        	}
+
+			private void displayDormcombo(ActionEvent evt) {
+				DBConnection conn =new DBConnection();
+				
+				try {
+				
+					ArrayList<String> list=conn.displayDorm();
+					for(int i =0;i<list.size();i++)
+					 accoInfoDormComboBox.addItem(list.get(i));
+				} catch (SQLException e) {
+		
+					e.printStackTrace();
+				}
+				
+				
+				
+			}
+        });*/
 		accoInfoRoomComboBox = new javax.swing.JComboBox();
+		accoInfoRoomComboBox.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+        		displayRoomNoMouseClicked(e);
+        	}
+
+			private void displayRoomNoMouseClicked(MouseEvent e) {
+				DBConnection conn =new DBConnection();
+				Dorm dorm=new Dorm();
+				
+				dorm.setDormName(accoInfoDormComboBox.getSelectedItem().toString());
+				
+				try {
+				
+					ArrayList<Integer> list=conn.displayRoomNo(dorm);
+					for(int i =0;i<list.size();i++)
+					 accoInfoRoomComboBox.addItem(list.get(i));
+				} catch (SQLException ev) {
+		
+					ev.printStackTrace();
+				}
+				
+				
+			}
+        });
 		accoInfoStartDateLabel = new javax.swing.JLabel();
 		accoInfoEndDateLabel = new javax.swing.JLabel();
 		accoInfoStartDateText = new javax.swing.JTextField();
@@ -88,7 +171,12 @@ public class StudentWindow extends javax.swing.JFrame {
 		accoInfoAddButton = new javax.swing.JButton();
 		accoInfoAddButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				addActionPerformed(evt);
+				try {
+					addActionPerformed(evt);
+				} catch (ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		});
 
@@ -127,265 +215,82 @@ public class StudentWindow extends javax.swing.JFrame {
 		personalInfoBirthdayLabel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 		personalInfoBirthdayLabel.setText("Birthday:");
 
-		personalInfoDayComboBox.setModel(new javax.swing.DefaultComboBoxModel(
-				new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-		personalInfoMounthComboBox
-				.setModel(new javax.swing.DefaultComboBoxModel(new String[] {
-						"Item 1", "Item 2", "Item 3", "Item 4" }));
-
-		personalInfoYearComboBox.setModel(new javax.swing.DefaultComboBoxModel(
-				new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
 		personalInfoGenderComboBox
 				.setModel(new javax.swing.DefaultComboBoxModel(new String[] {
-						"Item 1", "Item 2", "Item 3", "Item 4" }));
+						"Female", "Male" }));
+		
+		txtBirthday = new JTextField();
+		txtBirthday.setColumns(10);
 
 		javax.swing.GroupLayout gl_personalInfoPanel = new javax.swing.GroupLayout(
 				personalInfoPanel);
+		gl_personalInfoPanel.setHorizontalGroup(
+			gl_personalInfoPanel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_personalInfoPanel.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(gl_personalInfoPanel.createParallelGroup(Alignment.LEADING)
+						.addComponent(personalInfoLabel, GroupLayout.PREFERRED_SIZE, 123, GroupLayout.PREFERRED_SIZE)
+						.addGroup(gl_personalInfoPanel.createSequentialGroup()
+							.addGroup(gl_personalInfoPanel.createParallelGroup(Alignment.LEADING, false)
+								.addGroup(gl_personalInfoPanel.createSequentialGroup()
+									.addGroup(gl_personalInfoPanel.createParallelGroup(Alignment.TRAILING, false)
+										.addComponent(personalInfoGenderLabel, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+										.addComponent(personalInfoNationalIDLabel, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE)
+										.addComponent(personalInfoSurnameLabel, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+									.addGap(18)
+									.addGroup(gl_personalInfoPanel.createParallelGroup(Alignment.LEADING)
+										.addComponent(personalInfoSurnameText)
+										.addComponent(personalInfoTCText)
+										.addGroup(gl_personalInfoPanel.createSequentialGroup()
+											.addComponent(personalInfoGenderComboBox, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE)
+											.addGap(0, 115, Short.MAX_VALUE))))
+								.addGroup(gl_personalInfoPanel.createSequentialGroup()
+									.addComponent(personalInfoNameLabel, GroupLayout.PREFERRED_SIZE, 63, GroupLayout.PREFERRED_SIZE)
+									.addGap(18)
+									.addComponent(personalInfoNameText)))
+							.addGap(61)
+							.addGroup(gl_personalInfoPanel.createParallelGroup(Alignment.LEADING, false)
+								.addComponent(personalInfoPhoneLabel, GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+								.addComponent(personalInfoMailLabel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(personalInfoBirthdayLabel))
+							.addGap(37)
+							.addGroup(gl_personalInfoPanel.createParallelGroup(Alignment.LEADING, false)
+								.addComponent(txtBirthday)
+								.addComponent(personalInfoPhoneText, GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
+								.addComponent(personalInfoMailText))))
+					.addContainerGap(44, Short.MAX_VALUE))
+		);
+		gl_personalInfoPanel.setVerticalGroup(
+			gl_personalInfoPanel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_personalInfoPanel.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(personalInfoLabel)
+					.addGap(11)
+					.addGroup(gl_personalInfoPanel.createParallelGroup(Alignment.BASELINE)
+						.addComponent(personalInfoNameLabel, GroupLayout.PREFERRED_SIZE, 15, GroupLayout.PREFERRED_SIZE)
+						.addComponent(personalInfoPhoneLabel)
+						.addComponent(personalInfoNameText, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(personalInfoPhoneText, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGroup(gl_personalInfoPanel.createParallelGroup(Alignment.BASELINE)
+						.addComponent(personalInfoSurnameLabel)
+						.addComponent(personalInfoMailLabel)
+						.addComponent(personalInfoSurnameText, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(personalInfoMailText, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGroup(gl_personalInfoPanel.createParallelGroup(Alignment.BASELINE)
+						.addComponent(personalInfoNationalIDLabel)
+						.addComponent(personalInfoBirthdayLabel)
+						.addComponent(personalInfoTCText, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(txtBirthday, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+					.addGroup(gl_personalInfoPanel.createParallelGroup(Alignment.BASELINE)
+						.addComponent(personalInfoGenderLabel)
+						.addComponent(personalInfoGenderComboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap())
+		);
 		personalInfoPanel.setLayout(gl_personalInfoPanel);
-		gl_personalInfoPanel
-				.setHorizontalGroup(gl_personalInfoPanel
-						.createParallelGroup(
-								javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(
-								gl_personalInfoPanel
-										.createSequentialGroup()
-										.addContainerGap()
-										.addGroup(
-												gl_personalInfoPanel
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.LEADING)
-														.addComponent(
-																personalInfoLabel,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																123,
-																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addGroup(
-																gl_personalInfoPanel
-																		.createSequentialGroup()
-																		.addGroup(
-																				gl_personalInfoPanel
-																						.createParallelGroup(
-																								javax.swing.GroupLayout.Alignment.LEADING,
-																								false)
-																						.addGroup(
-																								gl_personalInfoPanel
-																										.createSequentialGroup()
-																										.addGroup(
-																												gl_personalInfoPanel
-																														.createParallelGroup(
-																																javax.swing.GroupLayout.Alignment.TRAILING,
-																																false)
-																														.addComponent(
-																																personalInfoGenderLabel,
-																																javax.swing.GroupLayout.Alignment.LEADING,
-																																javax.swing.GroupLayout.DEFAULT_SIZE,
-																																javax.swing.GroupLayout.DEFAULT_SIZE,
-																																Short.MAX_VALUE)
-																														.addComponent(
-																																personalInfoNationalIDLabel,
-																																javax.swing.GroupLayout.Alignment.LEADING,
-																																javax.swing.GroupLayout.DEFAULT_SIZE,
-																																63,
-																																Short.MAX_VALUE)
-																														.addComponent(
-																																personalInfoSurnameLabel,
-																																javax.swing.GroupLayout.Alignment.LEADING,
-																																javax.swing.GroupLayout.DEFAULT_SIZE,
-																																javax.swing.GroupLayout.DEFAULT_SIZE,
-																																Short.MAX_VALUE))
-																										.addGap(18,
-																												18,
-																												18)
-																										.addGroup(
-																												gl_personalInfoPanel
-																														.createParallelGroup(
-																																javax.swing.GroupLayout.Alignment.LEADING)
-																														.addComponent(
-																																personalInfoSurnameText)
-																														.addComponent(
-																																personalInfoTCText)
-																														.addGroup(
-																																gl_personalInfoPanel
-																																		.createSequentialGroup()
-																																		.addComponent(
-																																				personalInfoGenderComboBox,
-																																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																																				97,
-																																				javax.swing.GroupLayout.PREFERRED_SIZE)
-																																		.addGap(0,
-																																				115,
-																																				Short.MAX_VALUE))))
-																						.addGroup(
-																								gl_personalInfoPanel
-																										.createSequentialGroup()
-																										.addComponent(
-																												personalInfoNameLabel,
-																												javax.swing.GroupLayout.PREFERRED_SIZE,
-																												63,
-																												javax.swing.GroupLayout.PREFERRED_SIZE)
-																										.addGap(18,
-																												18,
-																												18)
-																										.addComponent(
-																												personalInfoNameText)))
-																		.addGap(61,
-																				61,
-																				61)
-																		.addGroup(
-																				gl_personalInfoPanel
-																						.createParallelGroup(
-																								javax.swing.GroupLayout.Alignment.LEADING,
-																								false)
-																						.addComponent(
-																								personalInfoPhoneLabel,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								50,
-																								Short.MAX_VALUE)
-																						.addComponent(
-																								personalInfoMailLabel,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								Short.MAX_VALUE)
-																						.addComponent(
-																								personalInfoBirthdayLabel))
-																		.addGap(37,
-																				37,
-																				37)
-																		.addGroup(
-																				gl_personalInfoPanel
-																						.createParallelGroup(
-																								javax.swing.GroupLayout.Alignment.LEADING,
-																								false)
-																						.addComponent(
-																								personalInfoPhoneText,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								223,
-																								Short.MAX_VALUE)
-																						.addGroup(
-																								gl_personalInfoPanel
-																										.createSequentialGroup()
-																										.addComponent(
-																												personalInfoDayComboBox,
-																												javax.swing.GroupLayout.PREFERRED_SIZE,
-																												javax.swing.GroupLayout.DEFAULT_SIZE,
-																												javax.swing.GroupLayout.PREFERRED_SIZE)
-																										.addPreferredGap(
-																												javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-																										.addComponent(
-																												personalInfoMounthComboBox,
-																												javax.swing.GroupLayout.PREFERRED_SIZE,
-																												javax.swing.GroupLayout.DEFAULT_SIZE,
-																												javax.swing.GroupLayout.PREFERRED_SIZE)
-																										.addPreferredGap(
-																												javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-																										.addComponent(
-																												personalInfoYearComboBox,
-																												javax.swing.GroupLayout.PREFERRED_SIZE,
-																												javax.swing.GroupLayout.DEFAULT_SIZE,
-																												javax.swing.GroupLayout.PREFERRED_SIZE))
-																						.addComponent(
-																								personalInfoMailText))))
-										.addContainerGap(
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												Short.MAX_VALUE)));
-		gl_personalInfoPanel
-				.setVerticalGroup(gl_personalInfoPanel
-						.createParallelGroup(
-								javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(
-								gl_personalInfoPanel
-										.createSequentialGroup()
-										.addContainerGap()
-										.addComponent(personalInfoLabel)
-										.addGap(11, 11, 11)
-										.addGroup(
-												gl_personalInfoPanel
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.BASELINE)
-														.addComponent(
-																personalInfoNameLabel,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																15,
-																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addComponent(
-																personalInfoPhoneLabel)
-														.addComponent(
-																personalInfoNameText,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addComponent(
-																personalInfoPhoneText,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE))
-										.addPreferredGap(
-												javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-										.addGroup(
-												gl_personalInfoPanel
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.BASELINE)
-														.addComponent(
-																personalInfoSurnameLabel)
-														.addComponent(
-																personalInfoMailLabel)
-														.addComponent(
-																personalInfoSurnameText,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addComponent(
-																personalInfoMailText,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE))
-										.addPreferredGap(
-												javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-										.addGroup(
-												gl_personalInfoPanel
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.BASELINE)
-														.addComponent(
-																personalInfoNationalIDLabel)
-														.addComponent(
-																personalInfoBirthdayLabel)
-														.addComponent(
-																personalInfoDayComboBox,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addComponent(
-																personalInfoMounthComboBox,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addComponent(
-																personalInfoYearComboBox,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addComponent(
-																personalInfoTCText,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE))
-										.addPreferredGap(
-												javax.swing.LayoutStyle.ComponentPlacement.RELATED,
-												18, Short.MAX_VALUE)
-										.addGroup(
-												gl_personalInfoPanel
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.BASELINE)
-														.addComponent(
-																personalInfoGenderLabel)
-														.addComponent(
-																personalInfoGenderComboBox,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE))
-										.addContainerGap()));
 
 		emergencyContactPanel.setBorder(javax.swing.BorderFactory
 				.createEtchedBorder());
@@ -990,41 +895,21 @@ public class StudentWindow extends javax.swing.JFrame {
 		pack();
 	}// </editor-fold>//GEN-END:initComponents
 
-	private void addActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_pTCidActionPerformed
-		if (personalInfoNameText.getText().isEmpty()
-				|| personalInfoSurnameText.getText().isEmpty()
-				|| personalInfoPhoneText.getText().isEmpty()
-				|| schoolInfoDepartmentText.getText().isEmpty()
-				|| emergencyContactNameText.getText().isEmpty()
-				|| emergencyContactSurnameText.getText().isEmpty()
-				|| emergencyContactPhoneText.getText().isEmpty()) {
+	private void addActionPerformed(java.awt.event.ActionEvent evt) throws ParseException {// GEN-FIRST:event_pTCidActionPerformed
+		if (checkPersonalInfoEmpty()) {
 			JOptionPane.showMessageDialog(getContentPane(),
 					"The mandatory field is empty, please fill");
 		} else {
-			Student student = new Student();
-			student.setName(personalInfoNameText.getText());
-			student.setSurname(personalInfoSurnameText.getText());
-			student.setPhone(personalInfoPhoneText.getText());
-			student.setEmail(personalInfoMailText.getText());
-			student.setTC(personalInfoTCText.getText());
-			// student.setBirthday(birthday); -> degisecek
-			// student.setGender(gender); -> degisecek
-			EmergencyContact emgContact = new EmergencyContact();
-			emgContact.setName(emergencyContactNameText.getText());
-			emgContact.setSurname(emergencyContactSurnameText.getText());
-			emgContact.setPhone(emergencyContactPhoneText.getText());
-			School school = new School();
-			school.setUniName(schoolInfoUniversityText.getText());
-			school.setDepartment(schoolInfoDepartmentText.getText());
-			if (schoolInfoGradeText.getText().isEmpty()) {
-				school.setGrade(0);
-			} else {
-				int grade = Integer.parseInt(schoolInfoGradeText.getText());
-				school.setGrade(grade);
-			}
+			Student student = getStudentInfoFromText();	
+			EmergencyContact emgContact = getContactInfoFromText();
+			School school = getSchoolInfoFromText();
+			Dorm dorm=new Dorm();
+			dorm.setDormName(accoInfoDormComboBox.getSelectedItem().toString());
+			Room room = getRoomFromText();
+			Hostel hostel = getStartEndDateFromText();
 			DBConnection conn = new DBConnection();
 			try {
-				if (conn.insertStudent(student, emgContact, school)) {
+				if (conn.insertStudent(student, emgContact, school,dorm,room,hostel)) {
 					System.out.println("Kayit Basarili");
 				} else {
 					System.out.println("Kayit Basarili Degil");
@@ -1036,6 +921,72 @@ public class StudentWindow extends javax.swing.JFrame {
 
 		}
 	}// GEN-LAST:event_pTCidActionPerformed
+
+	private Hostel getStartEndDateFromText() throws ParseException {
+		Hostel hostel=new Hostel();
+		Date start=convertStringToDatetime(accoInfoStartDateText.getText());
+		Date end=convertStringToDatetime(accoInfoEndDateText.getText());
+		hostel.setStartDate(start);
+		hostel.setStartDate(end);
+		return hostel;
+	}
+
+	private Room getRoomFromText() {
+		Room room =new Room();
+		int roomNo=Integer.parseInt(accoInfoRoomComboBox.getSelectedItem().toString());
+		room.setRoomNo(roomNo);
+		return room;
+	}
+
+	private School getSchoolInfoFromText() {
+		School school = new School();
+		school.setUniName(schoolInfoUniversityText.getText());
+		school.setDepartment(schoolInfoDepartmentText.getText());
+		if (schoolInfoGradeText.getText().isEmpty()) {
+			school.setGrade(0);
+		} else {
+			int grade = Integer.parseInt(schoolInfoGradeText.getText());
+			school.setGrade(grade);
+		}
+		return school;
+	}
+
+	private EmergencyContact getContactInfoFromText() {
+		EmergencyContact emgContact = new EmergencyContact();
+		emgContact.setName(emergencyContactNameText.getText());
+		emgContact.setSurname(emergencyContactSurnameText.getText());
+		emgContact.setPhone(emergencyContactPhoneText.getText());
+		return emgContact;
+	}
+
+	private Student getStudentInfoFromText() throws ParseException {
+		Student student = new Student();
+		Date birthday=convertStringToDatetime(txtBirthday.getText());
+		student.setName(personalInfoNameText.getText());
+		student.setSurname(personalInfoSurnameText.getText());
+		student.setBirthday(birthday);
+		student.setEmail(personalInfoMailText.getText());
+		student.setGender(personalInfoGenderComboBox.getSelectedItem().toString());
+		student.setTC(personalInfoTCText.getText());
+		student.setPhone(personalInfoPhoneText.getText());
+	
+		return student;
+	}
+	private Date convertStringToDatetime(String dt) throws ParseException {
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/mm/yyyy");
+		String date=dt;
+		Date birthday =sdf.parse(date);
+		return birthday;
+	}
+	private boolean checkPersonalInfoEmpty() {
+		return personalInfoNameText.getText().isEmpty()
+				|| personalInfoSurnameText.getText().isEmpty()
+				|| personalInfoPhoneText.getText().isEmpty()
+				|| schoolInfoDepartmentText.getText().isEmpty()
+				|| emergencyContactNameText.getText().isEmpty()
+				|| emergencyContactSurnameText.getText().isEmpty()
+				|| emergencyContactPhoneText.getText().isEmpty();
+	}
 
 	// Variables declaration - do not modify//GEN-BEGIN:variables
 	private javax.swing.JComboBox personalInfoGenderComboBox;
@@ -1072,11 +1023,9 @@ public class StudentWindow extends javax.swing.JFrame {
 	private javax.swing.JTextField emergencyContactNameText;
 	private javax.swing.JTextField emergencyContactSurnameText;
 	private javax.swing.JTextField emergencyContactPhoneText;
-	private javax.swing.JComboBox personalInfoDayComboBox;
 	private javax.swing.JComboBox accoInfoDormComboBox;
 	private javax.swing.JTextField personalInfoMailText;
 	private javax.swing.JTextField accoInfoEndDateText;
-	private javax.swing.JComboBox personalInfoMounthComboBox;
 	private javax.swing.JTextField personalInfoNameText;
 	private javax.swing.JTextField personalInfoPhoneText;
 	private javax.swing.JComboBox accoInfoRoomComboBox;
@@ -1084,6 +1033,5 @@ public class StudentWindow extends javax.swing.JFrame {
 	private javax.swing.JTextField accoInfoStartDateText;
 	private javax.swing.JTextField personalInfoSurnameText;
 	private javax.swing.JTextField personalInfoTCText;
-	private javax.swing.JComboBox personalInfoYearComboBox;
-	// End of variables declaration//GEN-END:variables
+	private JTextField txtBirthday;
 }
