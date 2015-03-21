@@ -5,14 +5,15 @@
  */
 package view;
 
+import javax.swing.JFrame;
 import javax.swing.JMenuItem;
+
+import org.jfree.chart.JFreeChart;
+import org.jfree.ui.RefineryUtilities;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-/**
- *
- * @author Nazli
- */
 public class MainWindow extends javax.swing.JFrame {
 
 	/**
@@ -146,6 +147,7 @@ public class MainWindow extends javax.swing.JFrame {
 		roomMenu = new javax.swing.JMenu();
 		addRoomMenuItem = new javax.swing.JMenuItem();
 		otherMenu = new javax.swing.JMenu();
+		addOtherChartMenuItem = new javax.swing.JMenuItem();
 
 		jMenu3.setText("File");
 		jMenuBar2.add(jMenu3);
@@ -1194,6 +1196,19 @@ public class MainWindow extends javax.swing.JFrame {
 
 		otherMenu.setText("Other");
 		menuBar.add(otherMenu);
+		
+		
+		addRoomMenuItem = new JMenuItem("Show Capacity");
+		addRoomMenuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				CapacityWindow capacityChart = new CapacityWindow( "Mobile Sales" );  
+			      capacityChart.setSize( 560 , 367 );    
+			      RefineryUtilities.centerFrameOnScreen( capacityChart );  
+			      capacityChart.setVisible( true ); 
+			      capacityChart.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+			}
+		});
+		otherMenu.add(addRoomMenuItem);
 
 		setJMenuBar(menuBar);
 
@@ -1300,6 +1315,7 @@ public class MainWindow extends javax.swing.JFrame {
 	private javax.swing.JMenuItem addStudentMenuItem;
 	private javax.swing.JMenuItem addDormMenuItem;
 	private javax.swing.JMenuItem addRoomMenuItem;
+	private javax.swing.JMenuItem addOtherChartMenuItem;
 	private javax.swing.JPanel mainSearchPanel;
 	private javax.swing.JPanel mainPanePanel;
 	private javax.swing.JPanel mainPaneSubPanel;
