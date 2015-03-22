@@ -8,12 +8,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-<<<<<<< HEAD
 import java.sql.Date;
-=======
->>>>>>> 3a1b0bbd4b4d69552f79e415dcc718419d1ca59d
 import java.util.ArrayList;
-
+import view.DormWindow;
 import background.Dorm;
 import background.EmergencyContact;
 import background.Hostel;
@@ -24,13 +21,10 @@ import background.Student;
 public class DBConnection {
 	Connection con = null;
 	CallableStatement proc_stmt;
-<<<<<<< HEAD
 	ResultSet rs=null;
 	PreparedStatement ps ;
-=======
 	DormWindow dormWin;
 	private ArrayList dorms;
->>>>>>> 3a1b0bbd4b4d69552f79e415dcc718419d1ca59d
 
 	public DBConnection() {
 
@@ -43,7 +37,7 @@ public class DBConnection {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		String url = "jdbc:sqlserver://192.168.230.1:1433;instance=MSSQLSERVER;DatabaseName=DormManagement";
+		String url = "jdbc:sqlserver://192.168.234.1:1433;instance=MSSQLSERVER;DatabaseName=DormManagement";
 	
 		con = DriverManager.getConnection(url,"sa","123456");
 		return con;
@@ -139,7 +133,7 @@ public class DBConnection {
 			throws SQLException {
 		connect();
 		try {
-			proc_stmt = con.prepareCall("{ call Insert_Student(?,?,?,?,) }");
+			proc_stmt = con.prepareCall("{ call Insert_Student(?,?,?,?,?,?,?,?,?,?,?,??,?,?,?,?) }");
 			proc_stmt.setString(1, sc.getUniName());
 			proc_stmt.setString(2, sc.getDepartment());
 			proc_stmt.setInt(3, sc.getGrade());
