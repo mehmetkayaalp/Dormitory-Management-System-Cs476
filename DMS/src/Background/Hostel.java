@@ -3,6 +3,7 @@ package background;
 import java.util.Date;
 public class Hostel {
 	private Date StartDate;
+	private Date EndDate;
 	public Date getStartDate() {
 		return StartDate;
 	}
@@ -15,6 +16,4 @@ public class Hostel {
 	public void setEndDate(Date endDate) {
 		EndDate = endDate;
 	}
-	private Date EndDate;
-
 }
